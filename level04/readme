@@ -1,0 +1,11 @@
+# apparition de la ligne suivante lors d'une recherche de fichiers :
+/rofs/var/www/level04
+
+# details du dossier: 
+level00@SnowCrash:~$ ls -la /var/www/
+total 4
+drwxr-xr-x  1 root   root    100 Jun 15 09:31 .
+drwxr-xr-x  1 root   root    160 Mar 12  2016 ..
+-r-xr-x---+ 1 root   root    177 Aug 30  2015 index.html
+dr-xr-x---+ 2 flag04 level04  60 Jun 15 09:31 level04
+dr-xr-x---+ 2 flag12 level12  60 Jun 15 09:31 level12
