@@ -12,6 +12,8 @@ the size of the token file indicates that it can be the flag for level08
 ```ln -s ~/token /tmp/file```
 ```./level08 /tmp/file``` = token
 
+```su level09``` doesn't work with this token => ```su flag08``` -> ```getflag``` gives the flag for this level
+
 
 
 find a folder that can be readable and writable by user :
