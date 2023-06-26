@@ -18,4 +18,10 @@ exploit file compilation needs a writable directory for gcc temp files :
 ```/level09 aaaaaaaaaaaaa``` -> abcdefghijklm
 
 
+The program does seem to react at filepath given rather than file content.
+
 => do a program that reverse the process to decode the token ?
+
+program in C that reverse the process : s[i] = s[i] - i
+
+the first characters look like a password or a flag => su flag09 => getflag
