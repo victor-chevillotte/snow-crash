@@ -24,4 +24,6 @@ The program does seem to react at filepath given rather than file content.
 
 program in C that reverse the process : s[i] = s[i] - i
 
+get the token from vm : ```scp -P 4242 level09@[IP_HERE]:token .```
+
 the first characters look like a password or a flag => su flag09 => getflag
