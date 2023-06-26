@@ -8,8 +8,14 @@ LD_PRELOAD is a known linux exploit the escalate privilege => apply this exploit
 exploit file compilation needs a writable directory for gcc temp files :
 ```export TMPDIR=/run/shm```
 
-```gcc -fPIC -shared -o /tmp/shell.so /tmp/shell.c```
+```gcc -fPIC -shared -o /tmp/shell.so /tmp/shell.c -nostartfiles```
 
 ```/tmp/level09 /tmp/token``` -> /uos3yurmw
 
 ```/run/shm/level09 /run/shm/token``` -> /swq3xnt7}yvq{
+
+
+```/level09 aaaaaaaaaaaaa``` -> abcdefghijklm
+
+
+=> do a program that reverse the process to decode the token ?

