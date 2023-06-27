@@ -8,3 +8,7 @@ When testing the program with a dummy file and ```nc -l 6969```, we realize that
 create a symlink to a dummy file with permissions :
 ```echo "exploit" > /tmp/dummy```
 ```ln -s /tmp/dummy /tmp/link```
+
+we ready the server with ```nc -l 6969``` and we launch the exploit "exploit.sh". The exploit change the symlink after 0.1s and the server receives the password : woupa2yuojeeaaed06riuj63c
+
+
