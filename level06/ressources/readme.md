@@ -1,5 +1,3 @@
-# find a clue
-
 The binary file level06 and the php file level06.php are available in the home directory
 
 Contents of the php file :

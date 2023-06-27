@@ -1,8 +1,8 @@
-# lors de mes recherches sur le flag00 je suis tombé sur :
-cat /etc/passwd
+when i searched for flag00 I came across :
+```cat /etc/passwd```
 flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
 
-# si on extrait ce qui ressemble a un hash et qu'on le traite avec 'john'
+if we extract what looks like a hash and decrypt it with 'john' :
 ./john flag01.txt
 Warning: detected hash type "descrypt", but the string is also recognized as "descrypt-opencl"
 Use the "--format=descrypt-opencl" option to force loading these as that type instead
@@ -18,6 +18,6 @@ abcdefg          (?)
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 
-=> abcdefg semble etre le mot de passe hashé 
+=> abcdefg seems to be the password
 
-=> confirmé par $su flag01
+=>  $su flag01 confirms

