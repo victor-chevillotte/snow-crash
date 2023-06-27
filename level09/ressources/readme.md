@@ -14,6 +14,8 @@ exploit file compilation needs a writable directory for gcc temp files :
 
 ```/run/shm/level09 /run/shm/token``` -> /swq3xnt7}yvq{
 
+==> this seems like a deadend
+
 
 ```/level09 aaaaaaaaaaaaa``` -> abcdefghijklm
 

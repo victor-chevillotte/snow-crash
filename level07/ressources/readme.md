@@ -1,5 +1,3 @@
-# binary
-
 only level07 binary is present in the home
 it prints 'level07' when executed
 
