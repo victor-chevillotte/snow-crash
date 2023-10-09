@@ -1,3 +1,6 @@
+Login to level00. password is given : level00
+
+
 find all files executable by user flag00 (hidden intra video)
 
 ```find / -group flag00 2>/dev/null```
