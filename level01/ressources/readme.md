@@ -1,9 +1,9 @@
-when i searched for flag00 I came across :
-```cat /etc/passwd```
 su level01
 password is flag00
 
-You'll notice that most passwords are encrypted, and their corresponding hashes are stored in the shadow files. However, the flag01 user's entry in the /etc/passwd file looks like this
+```cat /etc/passwd```
+
+We notice that most passwords are encrypted, and their corresponding hashes are stored in the shadow files. However, the flag01 user's entry in the /etc/passwd file looks like this
 
 flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
 
@@ -30,6 +30,6 @@ Session completed.
 
 
 
-=> abcdefg seems to be the password
+=> `abcdefg` seems to be the password
 
 =>  $su flag01 confirms
