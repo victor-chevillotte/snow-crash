@@ -1,7 +1,8 @@
 only level07 binary is present in the home
 it prints 'level07' when executed
 
-```strings level07``` shows that the function getenv is called
+```strings level07``` shows that the function getenv is called and ```/bin/echo %s``` is executed
+```env``` command shows that LOGNAME=level07
 
 the binary is owned by flag07 so we can try to inject the getflag call in the env variable
 there is a variable in the env that prints level07 => $LOGNAME
