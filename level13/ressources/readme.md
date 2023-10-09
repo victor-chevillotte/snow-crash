@@ -14,4 +14,9 @@ we can check that the lib is loaded with ```ldd level13```
 
 however it does not work directly because the binary is SUID => find a way  to execute it without suid permissions
 
-when we run in gdb to bypass suid binary preload protection we get the flag : 2A31L79asukciNyi8uppkEuSx
+
+when we run in gdb to bypass suid binary preload protection :
+```gdb level13``` then ```run```
+we get the flag : 2A31L79asukciNyi8uppkEuSx
+
+```su level14```
