@@ -1,31 +1,20 @@
-```./level09 token``` -> tpmhr
+In Level09, you are provided with an executable named `level09` and a `token` file. When you attempt to run the `level09` executable with a long string as input, you receive output that appears to be a shifted version of the alphabet:
 
-The command ```strings level09``` shows that getenv is used and the env variable LD_PRELOAD is read somewhere
-It is also mentionned that we should not reverse this binary :)
-
-LD_PRELOAD is a known linux exploit the escalate privilege => apply this exploit for this level ?
-
-exploit file compilation needs a writable directory for gcc temp files :
-```export TMPDIR=/run/shm```
-
-```gcc -fPIC -shared -o /tmp/shell.so /tmp/shell.c -nostartfiles```
-
-```/tmp/level09 /tmp/token``` -> /uos3yurmw
-
-```/run/shm/level09 /run/shm/token``` -> /swq3xnt7}yvq{
-
-==> this seems like a deadend
+./level09 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 
-```/level09 aaaaaaaaaaaaa``` -> abcdefghijklm
+
+abcdefghijklmnopqrstuvwxyz{|}~�����������������
 
 
-The program does seem to react at filepath given rather than file content.
-
-=> do a program that reverse the process to decode the token ?
-
-program in C that reverse the process : s[i] = s[i] - i
-
+This suggests that the executable is performing a progressive cipher, commonly known as a rolling cipher. In this type of cipher, each character in the input is shifted by an increasing number of positions.
+So we could rpovide a deciphered version of the token that could give us the flag
+For this we use the reverse script :
+ifconfig
 get the token from vm : ```scp -P 4242 level09@[IP_HERE]:token .```
+mv token level09/ressources/
+gcc reverse.c 
+chmod 777 token
+./a.out token
 
-the first characters look like a password or a flag => su flag09 => getflag
+```su leve10``` doesn't work with this token => ```su flag09``` -> ```getflag``` gives the flag for this level
