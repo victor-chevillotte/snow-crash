@@ -1,20 +1,85 @@
-In Level09, you are provided with an executable named `level09` and a `token` file. When you attempt to run the `level09` executable with a long string as input, you receive output that appears to be a shifted version of the alphabet:
+# Level09
 
+## Objective
+Exploit the `level09` executable to decipher the contents of the `token` file using a reverse script.
+
+## Steps
+
+### Step 1: Examine `level09` Output
+Run the `level09` executable with a long string as input:
+
+```bash
 ./level09 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+```
+
+Observe the output, which appears to be a shifted version of the alphabet.
+
+### Step 2: Reverse Script
+Create a reverse script in C to decipher the contents of the `token` file:
+
+```c
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 
+int main(int ac, char **av)
+{
 
-abcdefghijklmnopqrstuvwxyz{|}~�����������������
+    FILE*   ptr;
+    char    chr;
 
+    if (ac != 2)
+    {
+        printf("[usage] reverse [filepath]\n");
+        exit(1);
+    }
+    
+    char *filepath = av[1];
+    ptr = fopen(filepath, "r");
+    if (!ptr) {
+        printf("unable to open file.\n");
+        exit(1);
+    }
 
-This suggests that the executable is performing a progressive cipher, commonly known as a rolling cipher. In this type of cipher, each character in the input is shifted by an increasing number of positions.
-So we could rpovide a deciphered version of the token that could give us the flag
-For this we use the reverse script :
-ifconfig
-get the token from vm : ```scp -P 4242 level09@[IP_HERE]:token .```
-mv token level09/ressources/
-gcc reverse.c 
-chmod 777 token
-./a.out token
+    char *s;
+    chr = 'a';
+    int i = 0;
+    while (!feof(ptr)) {
+        chr = fgetc(ptr);
+        chr = chr - i;
+        write(1, &chr, 1);
+        i++;
+    }
+    return 0;
+}
+```
 
-```su leve10``` doesn't work with this token => ```su flag09``` -> ```getflag``` gives the flag for this level
+### Step 3: Compile and Run Reverse Script
+Compile the reverse script:
+
+```bash
+gcc reverse.c -o reverse
+```
+
+Run the compiled reverse script with the `token` file:
+
+```bash
+./reverse
+```
+
+### Step 4: Obtain Deciphered Token
+The output of the reverse script should be the deciphered contents of the `token` file.
+
+### Step 5: Switch to `flag09`
+Attempt to switch to `flag09` and execute `getflag`:
+
+```bash
+su flag09
+getflag
+```
+
+This should give you the flag for this level.
+
+Congratulations! You've successfully exploited the `level09` executable to decipher the contents of the `token` file and obtained the flag for `flag09`.

@@ -1,16 +1,56 @@
-the file level02.pcap is found in the home directory, 
-Pcap is a data file generated when analysing network pakctes (sniff)
-We can extract it for analysis using a custom script. 
-The script uses scapy which is a famous network library
-We download the .pcap file on our computer
-ifconfig to get the ip
-scp -P 4242 level02@192.168.56.2:level02.pcap .
+# Level02
 
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt 
-chmod 777 level02.pcap 
+## Objective
+Analyze the `level02.pcap` file to extract the password for the next level.
+
+## Steps
+
+### Step 1: Download and Setup
+1. Download the `level02.pcap` file to your local machine:
+
+   ```bash
+   scp -P 4242 level02@192.168.56.2:level02.pcap .
+   ```
+
+2. Set up a virtual environment and install the required dependencies:
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+3. Ensure the `level02.pcap` file has the necessary permissions:
+
+   ```bash
+   chmod 777 level02.pcap
+   ```
+
+### Step 2: Run the Script
+Run the provided Python script (`pcap_script.py`):
+
+```bash
 python pcap_script.py
-And then launch the script : ft_wandr '\x7f' '\x7f' '\x7f' NDRel '\x7f' L0L
-'\x7f' corresponds a key press of the delete key, when we delete each char that precedes '\x7f' we get the password :
-=> ft_waNDReL0L 
+```
+
+### Step 3: Launch the Script
+After running the script, launch it with the following command:
+
+```bash
+ft_wandr '\x7f' '\x7f' '\x7f' NDRel '\x7f' L0L
+```
+
+In this context, '\x7f' corresponds to a keypress of the delete key. By deleting each character that precedes '\x7f,' the password is revealed:
+
+```plaintext
+ft_waNDReL0L
+```
+
+This is the password for the next level (`level03`). Use this password to proceed:
+
+```bash
+su level03
+password: ft_waNDReL0L
+```
+
+You should now have access to the `level03` account.

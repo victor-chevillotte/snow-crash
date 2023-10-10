@@ -1,31 +1,52 @@
-sends file to host if you have access to it
-Connecting to %s:6969 .. 
-Unable to connect to host %s
-.*( )*.
-Unable to write banner to host %s
-Connected!
-Sending file .. 
-Damn. Unable to open file
-Unable to read from file: %s
-wrote file!
-You don't have access to %s
-;*2$"
+# Level10
 
+## Objective
+Exploit the `level10` binary by switching a symbolic link between a dummy file and the `token` file, allowing access to the content of the `token` file.
 
-The binary is using the access command to check if it is allowed to send the file to the specified host => exploit access 
+## Steps
 
-The binary is a server sending the file in arg to specified host on port 6969
+### Step 1: Understand `level10` Behavior
+Examine the behavior of the `level10` binary by testing it with a dummy file and a listening server using `nc`:
 
-When testing the program with a dummy file and ```nc -l 6969```, we realize that it writes a header ".*( )*.\n" before sending the file
-=> write a program that reads line by line to change file with a symbolic link just after the header is received
+```bash
+nc -lk 6969
+./level10 /tmp/dummy_file
+```
 
-create a symlink to a dummy file with permissions :
-```echo "exploit" > /tmp/myfile```
-```ln -s /tmp/myfile /tmp/link```
+Observe the communication between `level10` and the server.
 
-copy the 2 scripts with ```scp -P 4242 script1.py level10@[VM_IP]:/tmp```
-we ready the server with ```nc -lk 6969``` and we launch the first script ```python /tmp/script1.py``` and the second ```python /tmp/script2.py``` in parallel 
-the second script switch the symlink between the dummy file and the token very fast giving alternatively the exploit output and the password : woupa2yuojeeaaed06riuj63c
+### Step 2: Create Dummy File and Symlink
+Create a dummy file and a symbolic link:
 
-```su flag10```
-```getflag```
+```bash
+echo "exploit" > /tmp/myfile
+ln -s /tmp/myfile /tmp/link
+```
+
+### Step 3: Execute Scripts
+Run a listening server with `nc`:
+
+```bash
+nc -lk 6969
+```
+
+In parallel, execute the Python scripts:
+
+```bash
+python /tmp/script1.py
+python /tmp/script2.py
+```
+
+Observe the output of the server, which should contain the contents of the `token` file.
+
+### Step 4: Switch to `flag10`
+Switch to the `flag10` user and execute `getflag`:
+
+```bash
+su flag10
+getflag
+```
+
+This should give you the flag for this level.
+
+Congratulations! You've successfully exploited the `level10` binary to switch the symlink and obtain the flag for `flag10`.
