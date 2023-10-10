@@ -26,11 +26,13 @@ int main(int ac, char **av)
     char *s;
     chr = 'a';
     int i = 0;
-    while (chr != -1) {
+    while (!feof(ptr)) {
         chr = fgetc(ptr);
         chr = chr - i;
         write(1, &chr, 1);
         i++;
     }
+    fclose(ptr);
+    write(1, "\n", 1);
     return 0;
 }

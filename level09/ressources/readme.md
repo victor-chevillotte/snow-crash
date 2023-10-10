@@ -73,7 +73,7 @@ Run the compiled reverse script with the `token` file:
 The output of the reverse script should be the deciphered contents of the `token` file.
 
 ### Step 5: Switch to `flag09`
-Attempt to switch to `flag09` and execute `getflag`:
+Attempt to switch to `flag09` with the deciphered token and execute `getflag`:
 
 ```bash
 su flag09
