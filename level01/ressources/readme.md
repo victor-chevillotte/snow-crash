@@ -35,7 +35,7 @@ echo "flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash" >> key.txt
 Use John the Ripper to analyze the password hash and attempt to find the original password:
 
 ```bash
-./john key.txt
+./john --show key.txt
 ```
 
 Result:

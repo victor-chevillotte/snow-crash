@@ -21,6 +21,7 @@ uid_t getuid(void) {
 Compile the library into a shared object file:
 
 ```bash
+cd /tmp
 gcc -fPIC -shared -o /tmp/fake_uid.so /tmp/fake_uid.c -nostartfiles
 ```
 
@@ -44,6 +45,12 @@ Run the `level13` binary to exploit it:
 
 ```bash
 ./level13
+```
+The library is not loaded this way, we have to run it in gdb :  
+
+```bash
+gdb level13
+run
 ```
 
 ### Step 5: Obtain Flag

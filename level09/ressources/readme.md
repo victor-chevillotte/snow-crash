@@ -66,7 +66,7 @@ gcc reverse.c -o reverse
 Run the compiled reverse script with the `token` file:
 
 ```bash
-./reverse
+./reverse token
 ```
 
 ### Step 4: Obtain Deciphered Token

@@ -33,4 +33,4 @@ getflag
 
 This should give you the flag for this level.
 
-Congratulations! You've successfully generated the 15th flag for `level14` and switched to the `level15` user.
+Congratulations! You've successfully generated the 15th flag for `level14`.

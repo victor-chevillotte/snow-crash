@@ -30,7 +30,7 @@ Find the `LOGNAME` variable and its value.
 Inject the `getflag` command into the `LOGNAME` environment variable:
 
 ```bash
-export LOGNAME="`getflag`"
+export LOGNAME="\`getflag\`"
 ```
 
 ### Step 5: Execute `level07`

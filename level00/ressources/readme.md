@@ -12,8 +12,8 @@ Use the following command to find all files executable by the user `flag00` (hid
 find / -group flag00 2>/dev/null
 ```
 
-### Step 2: Investigate 'john' Software
-Execute the following commands to explore the 'john' software:
+### Step 2: Investigate 'john' binary
+Execute the following commands to explore the 'john' binary:
 
 ```bash
 bash /usr/sbin/john
@@ -34,6 +34,8 @@ Result:
 ```
 cdiiddwpgswtgt
 ```
+
+john is not a binary but a simple file containing a token  
 
 ### Step 3: Decode with 'dcode' Website
 The filename 'john' suggests hacking its contents with the 'john' software mentioned in the intra video. However, the contents do not seem to be a hash.
